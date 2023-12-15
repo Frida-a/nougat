@@ -60,6 +60,7 @@ def test(args):
         if image_tensors is None:
             return
         if len(predictions) >= args.num_samples:
+            print("here3")
             break
         ground_truth = pretrained_model.decoder.tokenizer.batch_decode(
             decoder_input_ids, skip_special_tokens=True
@@ -68,6 +69,7 @@ def test(args):
             image_tensors=image_tensors,
             return_attentions=False,
         )["predictions"]
+        # print(outputs)
         predictions.extend(outputs)
         ground_truths.extend(ground_truth)
         with Pool(args.batch_size) as p:
@@ -105,7 +107,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--save_path", "-o", type=str, default=None, help="json file to save results to"
     )
-    parser.add_argument("--num_samples", "-N", type=int, default=-1)
+    parser.add_argument("--num_samples", "-N", type=int, default=10)
     parser.add_argument("--shuffle", action="store_true")
     parser.add_argument("--batch_size", "-b", type=int, default=10)
     args, left_argv = parser.parse_known_args()
