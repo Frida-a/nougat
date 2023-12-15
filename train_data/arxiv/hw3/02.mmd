@@ -1,0 +1,41 @@
+4. (e)(3 points) Modify your algorithm to run in time \(O(n\log n)\). If you have already done so above, you do not need to answer this question.
+
+## 2 RNA Folding (12 points)
+
+A major difference between RNA and DNA is that RNA exists as a single strand that folds and pairs with itself. RNA consists of 4 different bases: adenine \(\mathtt{A}\), cytosine \(\mathtt{C}\), guanine \(\mathtt{G}\), and uracil \(\mathtt{U}\). Adenine pairs with uracil and cytosine pairs with guanine. There are many other factors, but generally RNA folds in a way that maximizes the number of pairs formed.
+
+In this problem, we will consider the case where an RNA strand folds on itself in a single location. Consider the RNA strand \(\mathtt{AUUGCAGACGCU}\). If the strand folds after the 6th base \(\mathtt{AUUGCA|GACGCU}\), this is a possible result:
+
+\[\begin{array}[]{ccccccccc}\mathtt{A}&\mathtt{U}&\mathtt{U}&\mathtt{G}&\mathtt{ C}&\mathtt{A}&-&-&-\\ \mathtt{U}&-&-&\mathtt{C}&\mathtt{G}&-&\mathtt{C}&\mathtt{A}&\mathtt{G}\end{array}\]
+
+If the strand folds after the 7th base \(\mathtt{AUUGCAG|ACGCU}\), this is a possible result:
+
+\[\begin{array}[]{cccccccc}\mathtt{A}&\mathtt{U}&\mathtt{U}&\mathtt{G}&\mathtt{C }&\mathtt{A}&\mathtt{G}&-\\ \mathtt{U}&-&-&\mathtt{C}&\mathtt{G}&-&\mathtt{C}&\mathtt{A}\end{array}\]
+
+Note that after folding, the second half of the RNA strand is paired backwards and we are able to skip over bases when forming pairs. There are 3 pairs when folding after the 6th base and 4 pairs when folding after the 7th base; thus, we consider folding after the 7th base more optimal.
+
+Design a **dynamic programming** algorithm which, when given a string \(S[1\dots n]\) consisting of the characters \(\{\mathtt{A},\mathtt{C},\mathtt{G},\mathtt{U}\}\), returns the maximum number of pairs that can be formed by a single fold. Your algorithm should be as asymptotically efficient as possible.
+
+1. [(a)]
+2. 1.(4 points) Define the subproblem that you will use to solve this problem **precisely**. Define any variables you introduce.
+3. 2.(4 points) Give a recurrence which expresses the solution to each subproblem in terms of smaller subproblems. State any base case(s).
+4. 3.(3 points) Write **pseudocode** for an algorithm to solve this problem.
+5. 4.(1 point) Analyze the running time and space complexity of your algorithm.
+
+## 3 Clustering (13 points)
+
+The problem of **clustering** a sorted sequence of one-dimensional points \(x_{1},\dots,x_{n}\) entails splitting the points into \(k\) clusters (where \(k\leq n\) is an input parameter) such that the sum of the squared distances from each point to its cluster mean is minimized.
+
+For example, consider the following sequence with \(n=5\):
+
+\[3,\ 3,\ 6,\ 16,\ 20\]
+
+Suppose we want to partition it into \(k=2\) clusters. Here is one possible solution:
+
+\[3,3\mid 6,16,20\]
+
+The mean of the first cluster is \((3+3)/2=3\), and the mean of the second cluster is \((6+16+20)/3=14\). The cost (total variance) of this clustering is \((3-3)^{2}+(3-3)^{2}+(6-14)^{2}+(16-14)^{2}+(20-14)^{2}=104\). This clustering is not optimal because there exists a better one:
+
+\[3,3,6\mid 16,20\]
+
+The mean of the first cluster is \((3+3+6)/3=4\), and the mean of the second cluster is \((16+20)/2=18\). The cost of this clustering is \((3-4)^{2}+(3-4)^{2}+(6-4)^{2}+(16-18)^{2}+(20-18)^{2}=14\), which is optimal.

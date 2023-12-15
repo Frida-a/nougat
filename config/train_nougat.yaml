@@ -1,7 +1,7 @@
 resume_from_checkpoint_path: null
 result_path: "result"
-model_path: null
-dataset_paths: ["path/to/train.jsonl"]
+model_path: "/home/aistudio/nougat/0.1.0-base/"
+dataset_paths: ["./train_data/train.jsonl","./train_data/validation.jsonl"]
 tokenizer: "dataset/tokenizer.json"
 exp_name: "nougat"
 train_batch_sizes: [1]
@@ -17,8 +17,8 @@ patch_size: 4
 embed_dim: 128
 hidden_dimension: 1024
 num_heads: [4, 8, 16, 32]
-encoder_layer: [2, 2, 14, 2]
-decoder_layer: 10
+encoder_layer: [2, 2, 2, 2]
+decoder_layer: 2
 align_long_axis: False
 num_nodes: 1
 seed: 25
@@ -28,7 +28,7 @@ lr_step: 16
 gamma: 0.9996
 warmup_steps: 250
 num_training_samples_per_epoch: 10000
-max_epochs: 30
+max_epochs: 3
 max_steps: -1
 val_check_interval: null
 check_val_every_n_epoch: 1

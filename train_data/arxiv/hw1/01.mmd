@@ -1,0 +1,42 @@
+# MPCS 55001 Algorithms Autumn 2023
+
+Homework 1
+
+ Student Name  Student CnetID
+
+Collaborators: Student A, Student B
+
+**Instructions:** Write up your answers in LaTeX and submit them to Gradescope. **redHandwritten homework will not be graded.**
+
+**Collaboration policy:** You may work together with other students. If you do, state it at the beginning of your solution: **give the name(s) of collaborator(s)** and the nature and extent of the collaboration. Giving/receiving a hint counts as collaboration. Note: you must write up solutions **independently without assistance**.
+
+**Internet sources:** You must include the url of any internet source in your homework submission.
+
+## 1 Square Roots (8 points)
+
+1. [(a)]
+2. 1.(4 points) Given a positive integer \(n\), write **pseudocode** for a **recursive****divide-and-conquer** algorithm to find the floor of the square root of \(n\), \(\lfloor\sqrt{n}\rfloor\).
+3. 2.(3 points) **Prove** the correctness of your algorithm using induction. (Recall that correctness proofs for recursive algorithms typically rely on induction, whereas correctness proofs for iterative algorithms typically rely on a loop invariant).
+4. 3.(1 point) Write and solve a running time recurrence for your algorithm.
+
+## 2 Closest Pair (12 points)
+
+In this problem we will develop a divide-and-conquer algorithm for the following geometric task.
+
+Closest Pair
+
+_Input_: A set of points in the plane, \(\{p_{1}=(x_{1},y_{1}),p_{2}=(x_{2},y_{2}),\ldots,p_{n}=(x_{n},y_{n})\}\).
+
+_Output_: The closest pair of points: that is, the pair \(p_{i}\neq p_{j}\) for which the distance between \(p_{i}\) and \(p_{j}\), that is,
+
+\[\sqrt{(x_{i}-x_{j})^{2}+(y_{i}-y_{j})^{2}},\]
+
+is minimized.
+
+For simplicity, assume that \(n\) is a power of two, and that all the \(x\)-coordinates \(x_{i}\) are distinct, as are the \(y\)-coordinates.
+
+Here is a high-level overview of the algorithm:
+
+* *Find a value \(x\) for which exactly half the points have \(x_{i}<x\), and half have \(x_{i}>x\). On this basis, split the points into two groups, \(L\) and \(R\).
+* *Recursively find the closest pair in \(L\) and in \(R\). Say these pairs are \(p_{L}\), \(q_{L}\in L\) and \(p_{R},q_{R}\in R\), with distances \(d_{L}\) and \(d_{R}\), respectively. Let \(d\) be the smaller of these two distances.
+* *It remains to be seen whether there is a point in \(L\) and a point in \(R\) that are less than distance \(d\) apart from each other. To this end, discard all points with \(x_{i}<x-d\) or \(x_{i}>x+d\) and sort the remaining points by \(y\)-coordinate.

@@ -1,0 +1,35 @@
+# MPCS 55001 Algorithms Autumn 2023
+
+Homework 4
+
+ Student Name Student CnetID
+
+Collaborators: Student A, Student B
+
+**Instructions:** Write up your answers in LaTeX and submit them to Gradescope. **redHandwritten homework will not be graded.**
+
+**Collaboration policy:** You may work together with other students. If you do, state it at the beginning of your solution: **give the name(s) of collaborator(s)** and the nature and extent of the collaboration. Giving/receiving a hint counts as collaboration. Note: you must write up solutions **independently without assistance**.
+
+**Internet sources:** You must include the url of any internet source in your homework submission.
+
+## 1 String Covering (8 points)
+
+Given strings \(S\) and \(T\), we say that \(S\)_covers_\(T\) if \(S\) contains all of the same characters in \(T\), including duplicates.
+
+For example, if \(S=\texttt{abcac}\) and \(T=\texttt{ccba}\), then \(S\) covers \(T\), but \(T\) does not cover \(S\). If \(U=\texttt{bcbc}\), then \(S\) does not cover \(U\) and \(U\) does not cover \(S\).
+
+1. [(a)]
+2. 1.(4 points) Given two strings A[1..n] and B[1..m], compute the first index \(k\) such that A[1..k] covers \(B\), or NIL if such an index does not exist. Assume \(B\) can have duplicates, and that \(n\geq m\) (otherwise there is obviously no solution). Write **pseudocode** for your algorithm, which should run in \(O(n)\)**expected** time.
+3. 2.(4 points) Given two strings A[1..n] and B[1..m], return the shortest contiguous substring A[i..j] such that A[i..j] covers \(B\). If there is no such substring, return NIL. Note that this can be solved in \(O(n^{2})\) expected time via repeated application of the algorithm in part (a) (taking \(i=1\), \(i=2\), and so on). Write **pseudocode** for an algorithm which runs in \(O(n)\) expected time.
+
+## 2 Augmented BSTs (9 points)
+
+Many problems call for a modified, or **augmented**, binary search tree. An augmented BST stores some extra information at each node in order to facilitate specific operations (in addition to the key, parent, and left/right children).
+
+For example, at every node \(v\), you might store an attribute called \(v.max\) which stores the largest value in the subtree rooted at \(v\) (including \(v\) itself). This augmentation would allow you to answer queries like "What is the maximum value in the BST?" in \(O(1)\) time by simply looking at \(T.root.max\). Think about what modifications to the insert and delete operations would be necessary to maintain this augmentation.
+
+Design an augmented BST to support a query of the form \(\code{SumBetween(T,x,y)}\), which returns the sum of keys in \(T\) in the interval \([x,y]\) (including the endpoints, if they exist) in \(O(\lg n)\) time. For example, the query SumBetween(T, 30, 51) on the below tree will return 91.
+
+[.**40** 28 [.62 **51** 75 ] ]
+
+There are 2 keys in the tree between 30 and 51 (shown in boldface). Their sum is 91.

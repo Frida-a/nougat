@@ -1,0 +1,22 @@
+You will need to decide what extra information to store, modify the insert and delete operations to maintain the augmentation, and write pseudocode for the new operation. The insert and delete operations should still run in \(O(\log n)\) time, where \(n\) is the number of elements in the tree. You may assume that the BST is balanced, and that the elements in the BST are distinct.
+
+1. [(a)]
+2. 1.(1 point) State which additional attribute(s) your augmented BST will maintain.
+3. 2.(2 points) Write (modified) **pseudocode** for Insert(T, x). Modify the algorithm from CLRS on page 294.
+4. 3.(3 points) Write (modified) **pseudocode** for Delete(T, x). Modify the algorithm from CLRS on page 298.
+5. 4.(3 points) Write **pseudocode** for SumBetween(T, x, y). It should run in \(O(\lg n)\) time and output an integer.
+
+## 3 Dynamic Percentiles (12 points)
+
+You are given access to a stream of numeric values of unknown length, e.g., \(99,-22.4,\dots\). The values are not necessarily unique.
+
+1. [(a)]
+2. 1.(6 points) Design a data structure \(D\) which supports the following operations: * *D.ingest(x) stores the next value in the stream in the data structure. This should run in \(O(\log n)\) time, where \(n\) is the number of values added thus far. * *D.median() returns the **true median** of the values added to the data structure thus far. This should run in \(O(1)\) time. The **true median** of a sorted sequence \(a_{1},\dots,a_{n}\) is \(a_{(n+1)/2}\) if \(n\) is odd and \((a_{n/2}+a_{(n/2)+1})/2\) if \(n\) is even. Give a brief explanation of the data structure \(D\). Write **pseudocode** for both operations and justify their running time.
+3. 2.(3 points) Modify your data structure from part (a) to support computing an arbitrary percentile \(p\). For example, if \(p=90\), your data structure should be able to compute the first value greater than or equal to the 90th percentile of the values it has ingested. The value of \(p\) is provided as a parameter during initialization, i.e., D.init(p). The running time of the ingest(x) operation should be the same as in part (a), and the running time of the new D.percentile() operation should be the same as median() in part (a).
+4. 3.(3 points) Finally, design an enhanced data structure \(S\) which supports the median operation over a sliding window of size \(k\). The window size \(k\) is provided as a parameter during initialization. You may add an auxiliary data structure if you wish. Describe how you would modify ingest and median. For example, suppose \(k=3\) and the stream emits \(10,85,44,15\), which are ingested by the data structure. If the median operation is called after these four values are processed, it should return \(44\), as that is the median of the final 3 values. If the stream emits \(12\) and median is called again, it should return \(15\). For this data structure, the ingest operation should run in \(O(\log k)\) time. The median operation should still run in \(O(1)\) time.
+
+## 4 Programming: Huffman Codes (20 points)
+
+1. [(a)]
+2. 1.(15 points) Follow this https://classroom.github.com/a/PAwHack1GitHub Classroom link to accept the assignment. Your code should be pushed to GitHub; you do not need to include it here.
+3. 2.In addition, there are a few short questions to answer here on LaTeX, after you finish your code. Consider an alphabet with letters a-h and the following counts in a message.  1. [(i)] 2. (a)(1 point) If every letter is encoded with a fixed length code of three bits, what is the number of bits needed to enco

@@ -1,0 +1,27 @@
+# MPCS 55001 Algorithms Autumn 2023
+
+Homework 3
+
+ Student Name Student CnetID
+
+Collaborators: Student A, Student B
+
+**Instructions:** Write up your answers in LaTeX and submit them to Gradescope. **redHandwritten homework will not be graded.**
+
+**Collaboration policy:** You may work together with other students. If you do, state it at the beginning of your solution: **give the name(s) of collaborator(s)** and the nature and extent of the collaboration. Giving/receiving a hint counts as collaboration. Note: you must write up solutions **independently without assistance**.
+
+**Internet sources:** You must include the url of any internet source in your homework submission.
+
+## 1 Scheduling Problems (13 points)
+
+
+
+On a computing system there are \(N\) jobs. Each job needs to run from moment \(s_{i}\) to moment \(t_{i}\). Unfortunately, the system cannot run jobs that overlap in the time they need to run. We want to run the greatest number of jobs possible.
+
+1. (a)(2 points) Prove that ordering the jobs in increasing finishing time \(t_{i}\) and greedily selecting the first job that has no conflicts achieves the optimum schedule.
+
+However, not all jobs are spawned equal. Each job is assigned a weight \(w_{i}\) and we want to select the subset \(S\) of non-overlapping jobs such that \(\sum_{i\in S}w_{i}\) is maximized. Unfortunately, this problem cannot be solved with a greedy algorithm. Give a **dynamic programming** algorithm that takes as input an array of jobs \([(s_{1},t_{1},w_{1}),\ldots,(s_{n},t_{n},w_{n})]\) and returns the maximum possible sum of weights \(w_{i}\) of non-overlapping jobs that is achievable. The running time should be \(O(n^{2})\).
+
+1. (b)(2 points) Define the subproblem that you will use to solve this problem **precisely**. Define any variables you introduce. What are the dimensions of your dynamic programming table? What is the space complexity?
+2. (c)(3 points) Give a recurrence which expresses the solution to each subproblem in terms of smaller subproblems. State any base case(s). Justify your recurrence and state the time complexity of your recurrence.
+3. (d)(3 points) Write **pseudocode** for an algorithm to solve this problem. Argue that your algorithm runs in \(O(n^{2})\) time.

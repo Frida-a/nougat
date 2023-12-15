@@ -1,0 +1,25 @@
+is ConstRandIsAllZero?
+
+### Boosting for one-sided error
+
+Consider the following algorithm.
+
+[H] Boosted Randomized
+
+``` function BoostRandIsAllZero(bit vector \(\alpha=(\alpha_{1},\alpha_{2},\ldots,\alpha_{n})\), integer \(k\)) for\(i=1\)to\(k\)do if ConstRandIsAllZero(\(a\)) = "No" then return "No" endif endfor return "Yes" ```
+
+1. (f)(1 point) In the **all-zero** (correct output "Yes") case, what is the probability of a false negative? Briefly explain.
+2. (g)(1 point) In the **half-zero** (correct output "No") case, what is the probability of a false positive? Briefly explain.
+
+### Primality Testing
+
+The public key cryptographic protocol RSA uses extremely long primes (at least 1024 bits long). As a result, we need to find very large primes efficiently. Fermat's little theorem states that \(\forall a\in\mathbb{N}^{+}\ \forall\ \text{primes }p:a^{p-1}\equiv 1\pmod{p}\). In addition, for any composite number \(q\), at least half the integers \(a\) will be "witnesses," meaning \(a^{q-1}\not\equiv 1\pmod{q}\).
+
+[H] Fermat's Primality Test
+
+``` function IsPrime(\(p\)) Select \(a\in[p-1]\) if\(a^{p-1}\equiv 1\pmod{p}\)then return "Yes" endif return "No" ```
+
+1. (h)(1 point) Between RP-type, coRP-type, and BPP-type, which one describes IsPrime? Why?
+2. (i)(1 point) If \(p\) is prime, what is the probability of a false negative? Briefly explain.
+3. (j)(1 point) If \(p\) is not prime, what is the probability of a false positive? Briefly explain.
+4. (k)(5 points) Follow this https://colab.research.google.com/drive/1mWG0AQpcnPepu_wEWcskbz3iUH7peY1F?usp=sharingGoogle Colab template link to implement Fermat primality testing and boosting. **Do not attempt to edit the linked file. Create your own copy instead by clicking File \(\rightarrow\) Save a copy in Drive**. You do not need to write anything in your .pdf document for 3(k). When you have completed the notebook, download the .ipynb file. **Important: you must submit this problem separately from .pdf file which contains the rest of your theory solutions. Submit the completed .ipynb file to the Gradescope assignment named HW 2 - Problem 3(k) Notebook.**

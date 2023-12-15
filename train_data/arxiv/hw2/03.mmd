@@ -1,0 +1,34 @@
+### Different Types of Error
+
+In computer science, problems with Yes/No answers are called decision problems. The above problem is an example of that class. Let's consider the possible outcomes that can occur in randomized algorithms for decision problems.
+
+
+
+* *A _false positive_ is when the correct output is No, but the algorithm outputs Yes. In statistical hypothesis testing this is also called a "Type I error".
+* *A _false negative_ is when the correct output is Yes, but the algorithm outputs No. In statistical hypothesis testing, this is also called a "Type II error".
+
+In the current terminology of machine learning, the table itself is called a confusion matrix.
+
+Consider the following randomized algorithm for identifying an all-zero vector that only looks at a single bit.
+
+[H] Constant Time Randomized
+
+``` function ConstRandIsAllZero(bit vector \(\alpha=(\alpha_{1},\alpha_{2},\ldots,\alpha_{n})\)) Pick \(X\in[n]\) uniformly at random if\(\alpha_{X}=1\)then return "No" endif return "Yes" ```
+
+1. (b)(1 point) Is Algorithm 1 a Las Vegas or Monte Carlo type algorithm? Why?
+2. (c)(1 point) If \(\alpha_{1}=\alpha_{2}=\ldots=0\) (the **all-zero** case), what is the probability of a false negative? Briefly explain.
+3. (d)(1 point) If half of the \(\alpha\)-vector is \(0\) (the **half-zero** case), what is the probability of a false positive? Briefly explain.
+
+### Types of Randomized Algorithms
+
+So far you have characterized an algorithm as "good" or "bad" depending on the resources it needs, such as running time, memory, or network messages sent. However, in randomized algorithms we also care about false positive and false negative rate.
+
+The first type of algorithms are the ones that for _every_ input whose correct output is No they always return No and for _every_ input whose correct output is Yes, the algorithm must output Yes with probability at least 1/2. These are called **randomized polynomial time** or **RP-type** algorithms.
+
+The second type of algorithms are the ones that _every_ input whose correct output is Yes they always return Yes and for _every_ input whose correct output is No, the algorithm must output No with probability at least 1/2. These are called **coRP-type** algorithms.
+
+**RP-type** and **coRP-type** have **one-sided error**. When an algorithm has both, it is said to have **two-sided error**. For those algorithms a useful definition is **bounded-error probabilistic polynomial time** or **BPP-type** algorithms that have false positive and false negative error rate below 1/3.
+
+
+
+1. (e)(1 point) What kind of algorithm
